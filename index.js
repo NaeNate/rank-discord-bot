@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 require('dotenv').config()
 const client = new Discord.Client();
 const botToken = process.env.BOT_TOKEN
-const prefix = "?";
+const prefix = "!";
 const rankRoles = ['Iron 1', 'Bronze 2', 'Silver 3']
 //Start the bot
 client.login(botToken);
@@ -18,16 +18,10 @@ client.on("message", (message) => {
   }
   const command = message.content.slice(1).toLowerCase().split(" ")[0]
 
-  if (command === "ping") {
-    ping(message);
-  } else if (command === "rank") {
-    changeRank(message);
+  if (command === "rank") {
+    changeRank(message)
   }
 });
-
-const ping = (message) => {
-  message.channel.send("pong");
-};
 
 const changeRank = (message) => {
   const member = message.guild.members.cache.get(message.author.id)
