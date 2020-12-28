@@ -70,7 +70,7 @@ const changeRank = (message, optional) => {
     return role.name === rank;
   });
   if (
-    (rank || role || optional) &&
+    (role || optional) &&
     rank != "Admin" &&
     rank != "Queen" &&
     rank != "Coach" &&
